@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Add Books";
+}
+<br />
+
+<p class="text-center"> 
+    <h1> @ViewBag</h1><br /><br />
+
+    <h4> Add books to the database</h4>
+    
+</p>
+<br />
+
+
+<form>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Title</label>
+        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Title"><br />
+
+
+
+        <div class="form-group">
+            <label for="exampleInputPassword1">Author</label>
+            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Author"><br />
+
+
+            <div class="form-group">
+                <label for="exampleInputPassword1">Genre</label>
+                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Genre">
+
+                <br />
+                <label for="exampleInputPassword1">PublishYear</label>
+                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="PublishYear">
+            </div>
+
+            <br />
+
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Agree to Terms</label><br />
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+</form>

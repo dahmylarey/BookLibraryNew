@@ -1,0 +1,71 @@
+﻿@model BookLibraryNew.Models.Book
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Books library</h1> 
+</div><br />
+
+<p>
+    @Html.ActionLink("Create new", "Create")
+</p>
+
+<table class="table">
+    <tr>
+    <thead>
+            @Html.DisplayFor(Book => Book.Id)
+    </thead>
+
+    <thead>
+            @Html.DisplayNameFor(Book => Book.Title)
+    </thead>
+
+    <thead>
+            @Html.DisplayNameFor(Book => Book.Author)
+    </thead>
+
+    <thead>
+            @Html.DisplayNameFor(Book => Book.Genre)
+    </thead>
+
+    <thead>
+            @Html.DisplayNameFor(Book => Book.PublishYear)
+    </thead>
+    </tr>
+
+    foreach(var item in model){
+    <tr>
+        <td>
+            @Html.DisplayFor(Book => Book.Id)
+        </td>
+
+        <td>
+            @Html.DisplayFor(Book => Book.Title)
+        </td>
+
+        <td>
+            @Html.DisplayFor(Book => Book.Author)
+        </td>
+
+        <td>
+            @Html.DisplayFor(Book => Book.Genre)
+        </td>
+
+        <td>
+            @Html.DisplayFor(Book => Book.PublishYear)
+        </td>
+
+      
+    </tr>
+
+
+
+
+
+</table>
+
+
+
+
+

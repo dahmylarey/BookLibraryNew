@@ -1,0 +1,42 @@
+﻿@model BookLibraryNew.Controllers.CreateController
+@{
+    ViewData["Title"] = "Create New Book";
+}
+<h1>@ViewData["Title"]</h1>
+
+<br />
+<br />
+
+<form>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Title</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        <small id="emailHelp" class="form-text text-muted">
+
+            <br />
+
+
+            <div class="form-group">
+                <label for="exampleInputPassword1">Author</label>
+                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Author"><br />
+
+
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Genre</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Genre">
+
+                    <br />
+                    <label for="exampleInputPassword1">PublishYear</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="PublishYear">
+                </div>
+
+                <br />
+
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Agree to Terms</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<p class="text-center">Use this page to input your Book info.</p>
