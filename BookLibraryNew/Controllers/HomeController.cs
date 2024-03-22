@@ -1,5 +1,6 @@
 using BookLibraryNew.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace BookLibraryNew.Controllers
@@ -14,18 +15,15 @@ namespace BookLibraryNew.Controllers
             _dbContext = dbContext;
         }
 
-      
 
-        public ActionResult Index()
+        [HttpGet]
+        public async Task<ActionResult<ICollection<Book>>> Index()
         {
-            //IEnumerable<Book> Books = _dbContext.Books.ToList();
-
-            return View();
-
-            var item = _dbContext.Books.ToList();
-            // return View();
-
+            return await _dbContext.Books.ToListAsync();
         }
+
+
+       
 
      
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -37,3 +35,6 @@ namespace BookLibraryNew.Controllers
         }
     }
 }
+
+
+

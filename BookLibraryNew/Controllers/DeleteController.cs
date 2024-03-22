@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BookLibraryNew.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace BookLibraryNew.Controllers
@@ -13,10 +14,25 @@ namespace BookLibraryNew.Controllers
             _dbContext = dbContext;
         }
 
-        public ActionResult Delete(int id)
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
         {
-            _dbContext.Books.Remove(_dbContext.Books.FirstOrDefault());
-            return View();
+            var Book = await _dbContext.Books.FindAsync(id);
+            if (Book == null)
+            {
+                return NotFound();
+            }
+
+            _dbContext.Books.Remove(Book);
+            await _dbContext.SaveChangesAsync();
+
+            return NoContent();
         }
+
+        //public ActionResult Delete(int id)
+        //{
+       //     _dbContext.Books.Remove(_dbContext.Books.FirstOrDefault());
+          //  return View();
+       // }
     }
 }
