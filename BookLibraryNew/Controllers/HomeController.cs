@@ -1,6 +1,7 @@
 using BookLibraryNew.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Collections;
 using System.Diagnostics;
 
 namespace BookLibraryNew.Controllers
@@ -17,7 +18,7 @@ namespace BookLibraryNew.Controllers
 
 
         [HttpGet]
-        public async Task<ActionResult<ICollection<Book>>> Index()
+        public async Task<ActionResult<IEnumerable<Book>>> Index()
         {
             return await _dbContext.Books.ToListAsync();
         }

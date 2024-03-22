@@ -1,5 +1,6 @@
 ﻿using BookLibraryNew.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace BookLibraryNew.Controllers
 {
@@ -21,13 +22,20 @@ namespace BookLibraryNew.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Book model)
+        public async Task<ActionResult<Book>> Create(Book Book)
         {
-            _dbContext.Books.Add(model);
-            _dbContext.SaveChanges();
-            ViewBag.Message = "Data Insert Successfully";
 
-            return View();
+            _dbContext.Books.Add(Book);
+            await _dbContext.SaveChangesAsync();
+
+            return CreatedAtAction(nameof(Create), new { id = Book.Id }, Book);
         }
+
+
+
+
+        
     }
 }
+
+
